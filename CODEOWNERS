@@ -1,5 +1,5 @@
 argocd/* @nocnoc-thailand/devops-admin
-**/templates/* @nocnoc-thailand/devops-admin 
+development/*/templates/* @nocnoc-thailand/devops-admin 
 istio-ingress/* @nocnoc-thailand/devops-admin
 utils/* @nocnoc-thailand/devops-admin
 CODEOWNERS @nocnoc-thailand/devops-admin
