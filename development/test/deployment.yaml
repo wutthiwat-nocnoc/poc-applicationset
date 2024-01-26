@@ -1,0 +1,53 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: application-set-hello-world-roundtable
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: in-cluster
+            url: https://kubernetes.default.svc
+            values:
+              env: dev
+              project: development
+          - cluster: in-cluster
+            url: https://kubernetes.default.svc
+            values:
+              env: qa
+              project: qa
+          # - cluster: in-cluster
+          #   url: https://kubernetes.default.svc
+          #   values:
+          #     env: perf
+          #     project: performance
+          - cluster: in-cluster
+            url: https://kubernetes.default.svc
+            values:
+              env: preprod
+              project: preprod
+          - cluster: in-cluster
+            url: https://kubernetes.default.svc
+            values:
+              env: prod
+              project: prod
+  template:
+    metadata:
+      name: 'hello-world-{{values.env}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/wutthiwat-nocnoc/poc-applicationset.git
+        targetRevision: main
+        path: '.'
+        helm:
+          releaseName: hello-world-env
+          valueFiles:
+            - 'values-{{values.env}}.yaml'
+      destination:
+        server: '{{url}}'
+        namespace: 'app-{{values.env}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true

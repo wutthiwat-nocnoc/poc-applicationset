@@ -1,0 +1,11 @@
+replicaCount: 1
+
+image:
+  tag: "latest"
+
+appEnv:
+  secret:
+    enabled: false
+  configMap:
+    enabled: true
+    MESSAGE: PREPROD-ENV
