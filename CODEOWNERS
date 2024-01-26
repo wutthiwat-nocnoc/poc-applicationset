@@ -1,5 +1,5 @@
 argocd/* @wutthiwat-nocnoc
-development/*/templates/* @wutthiwat-nocnoc
+**/templates/* @wutthiwat-nocnoc
 istio-ingress/* @wutthiwat-nocnoc
 utils/* @wutthiwat-nocnoc
 CODEOWNERS @wutthiwat-nocnoc
