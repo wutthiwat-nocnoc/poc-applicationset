@@ -1,1 +1,6 @@
-production/* @wutthiwat-nocnoc
+argocd/* @nocnoc-thailand/devops-admin
+**/templates/* @nocnoc-thailand/devops-admin 
+istio-ingress/* @nocnoc-thailand/devops-admin
+utils/* @nocnoc-thailand/devops-admin
+CODEOWNERS @nocnoc-thailand/devops-admin
+**/value-devops.yaml @nocnoc-thailand/devops-admin
